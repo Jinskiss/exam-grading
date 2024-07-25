@@ -11,7 +11,10 @@ public:
     DynFibonacci(int capacity): cache(new size_t[capacity]), cached(2) {}
 
     // TODO: 实现复制构造器
-    DynFibonacci(DynFibonacci const &other) = delete;
+    DynFibonacci(DynFibonacci const &other) {
+        cache = new size_t[12];
+        cached = other.cached;
+    }
 
     // TODO: 实现析构器，释放缓存空间
     ~DynFibonacci() {
@@ -39,7 +42,7 @@ public:
 };
 
 int main(int argc, char **argv) {
-    DynFibonacci const fib(12);
+    DynFibonacci fib(12);
     ASSERT(fib.get(10) == 55, "fibonacci(10) should be 55");
     DynFibonacci const fib_ = fib;
     ASSERT(fib_.get(10) == fib.get(10), "Object cloned");
