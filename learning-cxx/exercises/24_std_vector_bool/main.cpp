@@ -7,7 +7,6 @@
 // TODO: 将下列 `?` 替换为正确的代码
 int main(int argc, char **argv) {
     std::vector<bool> vec(100, 1);// TODO: 正确调用构造函数
-    std::cout << sizeof(vec) << std::endl;
     ASSERT(vec[0], "Make this assertion pass.");
     ASSERT(vec[99], "Make this assertion pass.");
     ASSERT(vec.size() == 100, "Make this assertion pass.");
