@@ -13,6 +13,7 @@ public:
     // TODO: 实现复制构造器
     DynFibonacci(DynFibonacci const &other) {
         cache = new size_t[12];
+        for (int i = 0; i <= other.cached; i++) this->cache[i] = other.cache[i];
         cached = other.cached;
     }
 
@@ -23,6 +24,7 @@ public:
 
     // TODO: 实现正确的缓存优化斐波那契计算
     size_t get(int i) {
+        cache[0] = 0, cache[1] = 1;
         for (; cached <= i; ++cached) {
             cache[cached] = cache[cached - 1] + cache[cached - 2];
         }
